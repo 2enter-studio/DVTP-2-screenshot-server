@@ -8,9 +8,15 @@ dependencies:
   '@types/screenshot-desktop':
     specifier: ^1.12.0
     version: 1.12.0
+  '@types/ws':
+    specifier: ^8.5.5
+    version: 8.5.5
   screenshot-desktop:
     specifier: ^1.14.0
     version: 1.14.0
+  ws:
+    specifier: ^8.13.0
+    version: 8.13.0
 
 devDependencies:
   concurrently:
@@ -41,6 +47,12 @@ packages:
 
   /@types/screenshot-desktop@1.12.0:
     resolution: {integrity: sha512-jzYeXNOWXLTAUPnK1LV4AQNY5N0T45UTFAmxF5oYk9dFrkdtmFwQZRZ9+M2jOrDowQV5jrasEWPQLkGAf/yXNA==}
+    dependencies:
+      '@types/node': 20.4.1
+    dev: false
+
+  /@types/ws@8.5.5:
+    resolution: {integrity: sha512-lwhs8hktwxSjf9UaZ9tG5M03PGogvFaH8gUgLNbN9HKIg0dvv6q+gkSuJ8HN4/VbyxkuLzCjlN7GquQ0gUJfIg==}
     dependencies:
       '@types/node': 20.4.1
     dev: false
@@ -329,6 +341,19 @@ packages:
 
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
+    dev: false
+
+  /ws@8.13.0:
+    resolution: {integrity: sha512-x9vcZYTrFPC7aSIbj7sRCYo7L/Xb8Iy+pW0ng0wt2vCJv7M9HOMy0UoN3rr+IFC7hb7vXoqS+P9ktyLLLhO+LA==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
     dev: false
 
   /y18n@5.0.8:

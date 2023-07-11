@@ -1,0 +1,16 @@
+{
+  "name": "dvtp-2-screenshot-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/screenshot-desktop": "^1.12.0",
+    "screenshot-desktop": "^1.14.0"
+  }
+}

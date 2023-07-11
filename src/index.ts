@@ -5,8 +5,7 @@ import config from './config.js';
 
 const WS_URL = process.env.WS_URL as string;
 
-const img_root = './images';
-let n = 0;
+const IMG_PATH_ROOT = config.img_path_root;
 
 let n: number = 0;
 

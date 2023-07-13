@@ -2,11 +2,14 @@
   "compilerOptions": {
     "target": "es2022",
     "module": "es2022",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
-    "skipLibCheck": true,
-    "outDir": "./dist"
+    "moduleResolution": "Node",
+    "esModuleInterop": true
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

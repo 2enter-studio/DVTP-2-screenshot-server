@@ -16,11 +16,13 @@
     "fs": "0.0.1-security",
     "mongoose": "^7.3.4",
     "screenshot-desktop": "^1.14.0",
+    "sharp": "^0.32.3",
     "validator": "^13.9.0",
     "ws": "^8.13.0"
   },
   "type": "module",
   "devDependencies": {
+    "@types/sharp": "^0.32.0",
     "@types/validator": "^13.7.17",
     "concurrently": "^8.2.0",
     "dotenv": "^16.3.1",

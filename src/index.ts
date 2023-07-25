@@ -48,6 +48,8 @@ const ws_connect = () => {
 			}
 			const answer_id = parsed_data._id;
 
+			await new Promise((r) => setTimeout(() => r, 2000));
+
 			await screenshot_taker.take_shot(answer_id).then(async (img_path) => {
 				await new Promise((resolve) => setTimeout(resolve, 2000));
 				await crop(img_path).then(async (data) => {

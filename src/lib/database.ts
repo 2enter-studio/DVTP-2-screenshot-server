@@ -35,8 +35,12 @@ export const upload_screenshot = async (id: string, img_path: string) => {
 	return new Response(`Screenshot for ${id} uploaded`, { status: 200 });
 };
 export const upload_cropped_screenshot = async (id: string, img_buffer: Buffer) => {
-	const filter = { _id: id };
-	const update = { screenshot: img_buffer };
-	await AnswerModel.findOneAndUpdate(filter, update);
+	await fetch('http://localhost:5173/api/screenshot', {
+		method: 'POST',
+		body: JSON.stringify({ id, screenshot: img_buffer })
+	});
+	// const filter = { _id: id };
+	// const update = { screenshot: img_buffer };
+	// await AnswerModel.findOneAndUpdate(filter, update);
 	return new Response(`Screenshot for ${id} uploaded`, { status: 200 });
 };

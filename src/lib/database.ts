@@ -5,6 +5,14 @@ import fs from 'fs';
 
 const MONGO_URI = process.env.MONGO_URI as string;
 
+let request_url =
+	(process.env.TESTING as string) === 'true'
+		? 'http://localhost:5173/api/screenshot'
+		: 'https://dvtp2.2enter.art/api/screenshot';
+
+console.log(`Testing: ${process.env.TESTING}`);
+console.log(`Request URL: ${request_url}`);
+
 const AnswerSchema = new Schema({
 	_id: Schema.Types.ObjectId,
 	answer: String,
@@ -35,7 +43,7 @@ export const upload_screenshot = async (id: string, img_path: string) => {
 	return new Response(`Screenshot for ${id} uploaded`, { status: 200 });
 };
 export const upload_cropped_screenshot = async (id: string, img_buffer: Buffer) => {
-	await fetch('https://dvtp2.2enter.art/api/screenshot', {
+	await fetch(request_url, {
 		method: 'POST',
 		body: JSON.stringify({ id, screenshot: img_buffer })
 	});

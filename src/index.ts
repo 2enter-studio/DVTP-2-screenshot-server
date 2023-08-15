@@ -11,7 +11,7 @@ const WS_URL = process.env.WS_URL as string;
 const IMG_PATH_ROOT = config.img_path_root;
 const screenshot_taker = new ScreenshotTaker(IMG_PATH_ROOT);
 
-// await db.connect_to_db().then((res) => res.text().then(console.log));
+await db.connect_to_db().then((res) => res.text().then(console.log));
 
 let ws = new WebSocket(WS_URL);
 

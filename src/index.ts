@@ -15,8 +15,13 @@ await db.connect_to_db().then((res) => res.text().then(console.log));
 
 let ws = new WebSocket(WS_URL);
 
-const exhibition_location = process.env.EXHIBITION_LOCATION;
-console.log(exhibition_location);
+const { EXHIBITION_LOCATION } = process.env;
+console.log(`Exhibition Location:\t${EXHIBITION_LOCATION}`);
+
+if (EXHIBITION_LOCATION === 'moca') {
+	console.log('Exhibition Location MOCA is being fixed, exiting...');
+	process.exit(1);
+}
 
 const ws_connect = () => {
 	ws = new WebSocket(WS_URL);
@@ -30,7 +35,7 @@ const ws_connect = () => {
 	});
 
 	ws.on('close', () => {
-		console.log('Websocket connection broke, trying to reconnecxt...');
+		console.log('Websocket connection broke, trying to reconnect...');
 		ws_connect();
 	});
 
@@ -42,8 +47,8 @@ const ws_connect = () => {
 				return;
 			}
 
-			if (parsed_data.location !== exhibition_location) {
-				console.log(`Invalid location received: ${parsed_data.location}`);
+			if (parsed_data.location !== EXHIBITION_LOCATION) {
+				console.log(`Invalid location received:\t${parsed_data.location}`);
 				return;
 			}
 			const answer_id = parsed_data._id;
@@ -57,7 +62,7 @@ const ws_connect = () => {
 				});
 			});
 		} else {
-			console.log(`Invalid data received: ${data.toString()}`);
+			console.log(`Invalid data received:\t${data.toString()}`);
 		}
 	});
 };

@@ -17,6 +17,9 @@ dependencies:
   mongoose:
     specifier: ^7.4.3
     version: 7.4.3
+  node-core-lib:
+    specifier: ^0.11.11
+    version: 0.11.11
   screenshot-desktop:
     specifier: ^1.15.0
     version: 1.15.0
@@ -474,6 +477,10 @@ packages:
 
   /node-addon-api@6.1.0:
     resolution: {integrity: sha512-+eawOlIgy680F0kBzPUNFhMZGtJ1YmqM6l4+Crf4IkImjYrO/mqPwRMh352g23uIaQKFItcQ64I7KMaJxHgAVA==}
+    dev: false
+
+  /node-core-lib@0.11.11:
+    resolution: {integrity: sha512-0qXLqCT7nyOdzylxKk9yKKlZyw+SCfJfAbviIrucOEnHmfQz4asBOB306alVEPAQSqgn65X1xlmr8Y8Po+1v7g==}
     dev: false
 
   /once@1.4.0:

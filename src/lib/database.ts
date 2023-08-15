@@ -1,17 +1,8 @@
 import 'dotenv/config';
 import mongoose, { Schema } from 'mongoose';
 import type { ConnectOptions } from 'mongoose';
-import fs from 'fs';
 
-const MONGO_URI = process.env.MONGO_URI as string;
-
-let request_url =
-	(process.env.TESTING as string) === 'true'
-		? 'http://localhost:5173/api/screenshot'
-		: 'https://dvtp2.2enter.art/api/screenshot';
-
-console.log(`Testing: ${process.env.TESTING}`);
-console.log(`Request URL: ${request_url}`);
+const { MONGO_URI } = process.env;
 
 const AnswerSchema = new Schema({
 	_id: Schema.Types.ObjectId,
@@ -25,10 +16,13 @@ const AnswerModel = mongoose.model('answers', AnswerSchema);
 
 export const connect_to_db = async () => {
 	try {
-		await mongoose.connect(MONGO_URI, {
-			useNewUrlParser: true,
-			useUnifiedTopology: true
-		} as ConnectOptions);
+		await mongoose.connect(
+			MONGO_URI as string,
+			{
+				useNewUrlParser: true,
+				useUnifiedTopology: true
+			} as ConnectOptions
+		);
 
 		return new Response('Connected to MongoDB');
 	} catch (err: unknown) {
@@ -36,13 +30,7 @@ export const connect_to_db = async () => {
 	}
 };
 
-export const upload_screenshot = async (id: string, img_path: string) => {
-	const filter = { _id: id };
-	const update = { screenshot: fs.readFileSync(img_path) };
-	await AnswerModel.findOneAndUpdate(filter, update);
-	return new Response(`Screenshot for ${id} uploaded`, { status: 200 });
-};
-export const upload_cropped_screenshot = async (id: string, img_buffer: Buffer) => {
+export const upload_screenshot = async (id: string, img_buffer: Buffer) => {
 	// await fetch(request_url, {
 	// 	method: 'POST',
 	// 	body: JSON.stringify({ id, screenshot: img_buffer })

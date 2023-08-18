@@ -18,10 +18,10 @@ let ws = new WebSocket(WS_URL);
 const { EXHIBITION_LOCATION } = process.env;
 console.log(`Exhibition Location:\t${EXHIBITION_LOCATION}`);
 
-if (EXHIBITION_LOCATION === 'moca') {
-	console.log('Exhibition Location MOCA is being fixed, exiting...');
-	process.exit(1);
-}
+// if (EXHIBITION_LOCATION === 'moca') {
+// 	console.log('Exhibition Location MOCA is being fixed, exiting...');
+// 	process.exit(1);
+// }
 
 const ws_connect = () => {
 	ws = new WebSocket(WS_URL);
